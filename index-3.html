@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SME Growth Copilot — Dashboard</title>
+<style>
+:root{
+  --bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#6b7280;--line:#e7eaf0;
+  --blue:#1769e0;--blue2:#4f8df7;--green:#18a673;--orange:#f59e0b;--red:#e45757;
+}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1280px;margin:auto;padding:24px}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px}
+h1{margin:0;font-size:25px} .sub{color:var(--muted);font-size:13px;margin-top:4px}
+select,button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;color:var(--ink)}
+.tabs{display:flex;gap:8px;overflow:auto;margin-bottom:18px}.tab{white-space:nowrap}.tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 2px 8px #17203308}
+.kpi-label{color:var(--muted);font-size:13px}.kpi{font-size:27px;font-weight:750;margin:8px 0}.delta{font-size:12px}.up{color:var(--green)}.down{color:var(--red)}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;margin-top:14px}.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px}
+.title{font-size:15px;font-weight:700;margin-bottom:14px}.chart{height:230px;position:relative}.bars{height:185px;display:flex;align-items:end;gap:10px;border-bottom:1px solid var(--line);padding:0 8px}
+.bar{flex:1;background:linear-gradient(180deg,var(--blue2),var(--blue));border-radius:6px 6px 0 0;min-width:10px}.labels{display:flex;gap:10px;padding:8px 8px 0;color:var(--muted);font-size:11px}.labels span{flex:1;text-align:center}
+.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}.table th{color:var(--muted);font-weight:600}
+.pill{display:inline-block;padding:5px 8px;border-radius:20px;font-size:11px;background:#eaf7f2;color:#087c57}.warn{background:#fff5df;color:#9a6500}
+.rec{padding:12px;border-left:3px solid var(--blue);background:#f7faff;border-radius:7px;margin-bottom:9px;font-size:13px;line-height:1.45}
+footer{color:var(--muted);font-size:11px;margin-top:18px;text-align:right}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two,.three{grid-template-columns:1fr}.wrap{padding:14px}header{align-items:flex-start}.chart{height:210px}}
+@media(max-width:500px){.grid{grid-template-columns:1fr 1fr}.kpi{font-size:21px}h1{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><div class="logo">SC</div><div><h1>SME Growth Copilot</h1><div class="sub">Management analytics & decision-support dashboard · Built by Rithik Bhattacharjee</div></div></div>
+  <select id="period"><option>Last 12 months</option><option>Last 6 months</option><option>Current quarter</option></select>
+</header>
+
+<div class="tabs">
+  <button class="tab active">Executive Overview</button>
+  <button class="tab">Marketing Performance</button>
+  <button class="tab">Sales & Revenue</button>
+  <button class="tab">Customer Analytics</button>
+  <button class="tab">Budget Optimization</button>
+  <button class="tab">AI Recommendations</button>
+</div>
+
+<section class="grid">
+  <div class="card"><div class="kpi-label">Revenue</div><div class="kpi">₹48.6L</div><div class="delta up">▲ 14.8% vs previous period</div></div>
+  <div class="card"><div class="kpi-label">Marketing Spend</div><div class="kpi">₹8.4L</div><div class="delta down">▲ 6.2% spend</div></div>
+  <div class="card"><div class="kpi-label">Customers Acquired</div><div class="kpi">1,284</div><div class="delta up">▲ 18.3% growth</div></div>
+  <div class="card"><div class="kpi-label">ROMI</div><div class="kpi">4.8×</div><div class="delta up">▲ 0.6× improvement</div></div>
+</section>
+
+<section class="two">
+  <div class="card">
+    <div class="title">Monthly Revenue Trend</div>
+    <div class="chart"><div class="bars">
+      <div class="bar" style="height:43%"></div><div class="bar" style="height:51%"></div><div class="bar" style="height:47%"></div>
+      <div class="bar" style="height:59%"></div><div class="bar" style="height:64%"></div><div class="bar" style="height:61%"></div>
+      <div class="bar" style="height:72%"></div><div class="bar" style="height:69%"></div><div class="bar" style="height:77%"></div>
+      <div class="bar" style="height:82%"></div><div class="bar" style="height:88%"></div><div class="bar" style="height:96%"></div>
+    </div><div class="labels"><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></div>
+  </div>
+  <div class="card">
+    <div class="title">Channel Performance</div>
+    <table class="table"><tr><th>Channel</th><th>Spend</th><th>ROMI</th></tr>
+      <tr><td>Google Ads</td><td>₹2.1L</td><td><span class="pill">6.2×</span></td></tr>
+      <tr><td>Meta</td><td>₹1.8L</td><td><span class="pill">5.4×</span></td></tr>
+      <tr><td>Email</td><td>₹0.4L</td><td><span class="pill">7.1×</span></td></tr>
+      <tr><td>Organic</td><td>₹0.2L</td><td><span class="pill">8.0×</span></td></tr>
+      <tr><td>Other</td><td>₹3.9L</td><td><span class="pill warn">2.6×</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="three">
+  <div class="card"><div class="title">Marketing Funnel</div>
+    <table class="table"><tr><td>Leads</td><td><b>18,420</b></td></tr><tr><td>Qualified Leads</td><td><b>6,218</b></td></tr><tr><td>Conversions</td><td><b>1,284</b></td></tr><tr><td>Conversion Rate</td><td><b>6.97%</b></td></tr></table>
+  </div>
+  <div class="card"><div class="title">Customer Analytics</div>
+    <table class="table"><tr><td>New Customers</td><td><b>1,284</b></td></tr><tr><td>Repeat Rate</td><td><b>41.6%</b></td></tr><tr><td>Avg. Order Value</td><td><b>₹3,786</b></td></tr><tr><td>Estimated CAC</td><td><b>₹654</b></td></tr></table>
+  </div>
+  <div class="card"><div class="title">AI-Assisted Recommendations</div>
+    <div class="rec"><b>Reallocate budget:</b> increase investment in high-ROMI channels and review the lowest-return segment.</div>
+    <div class="rec"><b>Watch CAC:</b> customer acquisition cost is rising faster than revenue in one paid channel.</div>
+    <div class="rec"><b>Growth opportunity:</b> repeat customers show stronger economics; test retention campaigns.</div>
+  </div>
+</section>
+<footer>Dashboard UI prototype · Replace illustrative values with cleaned_business_data.csv for the final analytical version.</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+}));
+</script>
+</body>
+</html>
